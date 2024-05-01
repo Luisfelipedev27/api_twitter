@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_05_01_050214) do
+ActiveRecord::Schema.define(version: 2024_05_01_051255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,10 @@ ActiveRecord::Schema.define(version: 2024_05_01_050214) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "repost_id"
+    t.bigint "quote_id"
+    t.index ["quote_id"], name: "index_posts_on_quote_id"
+    t.index ["repost_id"], name: "index_posts_on_repost_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -29,5 +33,7 @@ ActiveRecord::Schema.define(version: 2024_05_01_050214) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "posts", "posts", column: "quote_id"
+  add_foreign_key "posts", "posts", column: "repost_id"
   add_foreign_key "posts", "users"
 end
