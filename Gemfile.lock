@@ -161,6 +161,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     thor (1.1.0)
+    timecop (0.9.8)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     websocket-driver (0.7.3)
@@ -182,6 +183,7 @@ DEPENDENCIES
   rspec-rails (~> 5.0)
   shoulda-matchers
   spring
+  timecop
   tzinfo-data
 
 RUBY VERSION
