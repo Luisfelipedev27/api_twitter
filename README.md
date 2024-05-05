@@ -27,14 +27,17 @@ $ docker-compose run web bundle exec rspec
 ### Enpoints
 
 ```sh
-# GET/ ENDPOINT TO RETURN THE LAST 5 USER POSTS ON USER PROFILE PAGE
+# POST/ ENDPOINT TO CREATE A POSTS FOR USER_1 ON USER PROFILE PAGE
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "content=my content" http://localhost:3000/api/v1/users/1/create_post
+
+# POST/ ENDPOINT TO CREATE A POSTS FOR USER_2 ON USER PROFILE PAGE
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "content=my content" http://localhost:3000/api/v1/users/2/create_post
+
+# GET/ ENDPOINT TO RETURN THE LAST 5 USER_1 POSTS ON USER PROFILE PAGE
 curl -X GET "http://localhost:3000/api/v1/users/1"
 
 # GET/ ENDPOINT TO RETURN ALL POSTS BY USER WITH (SHOW MORE) USING OFFSET
 curl -X GET "http://localhost:3000/api/v1/users/1/?offset=5"
-
-# POST/ ENDPOINT TO CREATE A POSTS FOR USER 1 ON USER PROFILE PAGE
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "content=my content" http://localhost:3000/api/v1/users/1/create_post
 
 # GET/ ENDPOINT TO RETURN ALL POSTS ON HOMEPAGE
 curl -X GET "http://localhost:3000/api/v1/posts"
@@ -55,7 +58,7 @@ curl -X GET "http://localhost:3000/api/v1/posts?user_id=1&start_date=2024-03-01&
 # GET/ WITH OFFSET TO RETURN MORE POSTS
 curl -X GET "http://localhost:3000/api/v1/posts?user_id=1&start_date=2024-03-01&end_date=2024-05-02&offset=10"
 
-# POST/ ENDPOINT TO CREATE A POST FOR USER 1 ON HOMEPAGE
+# POST/ ENDPOINT TO CREATE A POST FOR USER_1 ON HOMEPAGE
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "content=my content&user_id=1" http://localhost:3000/api/v1/posts
 
 # POST/ ENDPOINT TO CREATE A REPOST WITH COMMENT
