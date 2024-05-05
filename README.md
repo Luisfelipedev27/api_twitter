@@ -62,7 +62,7 @@ curl -X GET "http://localhost:3000/api/v1/posts?user_id=1&start_date=2024-03-01&
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "content=my content&user_id=1" http://localhost:3000/api/v1/posts
 
 # POST/ ENDPOINT TO CREATE A REPOST WITH COMMENT
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "user_id=1&quote_content=Its my retweet" http://localhost:3000/api/v1/posts/3/repost
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "user_id=1&quote_content=Its my retweet" http://localhost:3000/api/v1/posts/1/repost
 
 ```
 ### Critique
